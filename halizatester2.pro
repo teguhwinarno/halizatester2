@@ -19,14 +19,16 @@ SOURCES += main.cpp\
     loggingcategories.cpp \
     testkyped.cpp \
     testbaterai.cpp \
-    hidupitupilihan.cpp
+    hidupitupilihan.cpp \
+    logger.cpp
 
 HEADERS  += halizatester2.h \
     testdisplay.h \
     loggingcategories.h \
     testkyped.h \
     testbaterai.h \
-    hidupitupilihan.h
+    hidupitupilihan.h \
+    logger.h
 
 FORMS    += halizatester2.ui \
     testdisplay.ui \

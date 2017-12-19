@@ -6,19 +6,19 @@
 #include <QScopedPointer>
 #include <QTextStream>
 #include <QDateTime>
-#include <QLoggingCategory>
+//#include <QLoggingCategory>
 
-QScopedPointer<QFile>   m_logFile;
+//QScopedPointer<QFile>   m_logFile;
 
-void  messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
+//void  messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
 
 int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
-   m_logFile.reset(new QFile("/home/teguh/Templates/halizatester2/LogFile.txt"));
-   m_logFile.data()->open(QFile::Append | QFile::Text);
-   qInstallMessageHandler(messageHandler);
+//   m_logFile.reset(new QFile("/home/teguh/Templates/halizatester2/LogFile.txt"));
+//   m_logFile.data()->open(QFile::Append | QFile::Text);
+//   qInstallMessageHandler(messageHandler);
 
 
 
@@ -29,15 +29,15 @@ int main(int argc, char *argv[])
 
 }
 
- void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
-{
-   QTextStream out(m_logFile.data());
-   out <<QDateTime::currentDateTime().toString("yyyy -MM -dd hh:mm:ss ");
-   switch (type)
-   {
-      case QtDebugMsg: out <<"INF"; break;
-   }
-   out << context.category <<" : "
-        << msg << endl ;
-  out.flush();
- }
+// void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+//{
+//   QTextStream out(m_logFile.data());
+//   out <<QDateTime::currentDateTime().toString("yyyy -MM -dd hh:mm:ss ");
+//   switch (type)
+//   {
+//      case QtDebugMsg: out <<"INF"; break;
+//   }
+//   out << context.category <<" : "
+//        << msg << endl ;
+//  out.flush();
+// }

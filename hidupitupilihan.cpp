@@ -12,6 +12,8 @@ hidupitupilihan::hidupitupilihan(QWidget *parent) :
     ui->setupUi(this);
     lagi=1;
     ui->testok->setStyleSheet("background-color: blue");
+    QString fileName = "/home/teguh/Templates/halizatester2/loggfile2";
+    logger =new Logger(this, fileName);
 }
 
 hidupitupilihan::~hidupitupilihan()
@@ -86,11 +88,13 @@ void hidupitupilihan::keyPressEvent(QKeyEvent *event)
 void hidupitupilihan::on_testok_clicked()
 {
     QWidget::close();
-    qInfo(logInfo()) <<" TESTING OK";
+//    qInfo(logInfo()) <<" TESTING OK";
+    logger->write ("TESTING OK");
 }
 
 void hidupitupilihan::on_testnotok_clicked()
 {
     QWidget::close();
-    qInfo(logInfo()) <<" TESTING TIDAK OK";
+//    qInfo(logInfo()) <<" TESTING TIDAK OK";
+    logger->write ("TESTING TIDAK OK");
 }

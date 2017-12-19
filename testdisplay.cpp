@@ -1,12 +1,14 @@
 #include "testdisplay.h"
 #include "ui_testdisplay.h"
 
+
 int counter = 0;
 int a;
 #include <QKeyEvent>
 
-#include "loggingcategories.h"
+//#include "loggingcategories.h"
 #include "halizatester2.h"
+
 
 
 
@@ -16,8 +18,9 @@ testdisplay::testdisplay(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setStyleSheet("background-color: red;");
-
-
+    QString fileName = "/home/teguh/Templates/halizatester2/loggfile2";
+    logger =new Logger(this, fileName);
+//    logger->write("Hello Qt");
 }
 
 testdisplay::~testdisplay()
@@ -28,6 +31,10 @@ testdisplay::~testdisplay()
 void testdisplay::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Right)
+    {
+        this->on_next_clicked();
+    }
+    if (event->key() == Qt::Key_Return)
     {
         this->on_next_clicked();
     }
@@ -68,7 +75,8 @@ void testdisplay::on_next_clicked()
 
         Hidupitupilihan->show();
         QWidget::close();
-        qInfo(logInfo()) <<" TESTING DISPLAY";
+//       qInfo(logInfo()) <<" TESTING DISPLAY";
+        logger->write ("TESTING DISPLAY");
     }
     if (counter >= 5)
     {

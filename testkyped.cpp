@@ -3,18 +3,22 @@
 
 #include <QKeyEvent>
 #include <QDebug>
-#include "loggingcategories.h"
+//#include "loggingcategories.h"
 
 testkyped::testkyped(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::testkyped)
 {
     ui->setupUi(this);
+    QString fileName = "/home/teguh/Templates/halizatester2/loggfile2";
+    logger =new Logger(this, fileName);
+    ui->at->setStyleSheet("background-color: black");
 }
 
 testkyped::~testkyped()
 {
     delete ui;
+
 }
 
 
@@ -78,7 +82,8 @@ void testkyped::keyPressEvent(QKeyEvent *event)
     }
     if (event->key()==Qt::Key_Control){
      //  qDebug("cancel");
-        ui->CANCEL->setStyleSheet("background-color: yellow");
+        ui->CANCEL
+                ->setStyleSheet("background-color: yellow");
         g = 1;
     }
     if (g>1)
@@ -154,14 +159,16 @@ void testkyped::keyReleaseEvent(QKeyEvent *event)
     {
         g=0;
     }
-    if (a==1 && b==1 && c==1 && d==1 && e==1 && f==1 && g == 1)
+    if (a==1 && b==1 && c==1 && d==1 && e==1 && f == 1 && g==1)
     {
+
         Hidupitupilihan = new hidupitupilihan;
         Hidupitupilihan->setFixedSize(640,480);
         Hidupitupilihan->setWindowFlags(Qt::FramelessWindowHint);
 
         Hidupitupilihan->show();
-        qInfo(logInfo()) <<" TESTING KYPED";
+//        qInfo(logInfo()) <<" TESTING KYPED";
+        logger->write ("TESTING KYPED");
         QWidget::close();
     }
 

@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "hidupitupilihan.h"
+#include "logger.h"
 
 namespace Ui {
 class testdisplay;
@@ -26,6 +27,7 @@ protected:
 private:
     Ui::testdisplay *ui;
     hidupitupilihan *Hidupitupilihan;
+    Logger *logger;
 };
 
 #endif // TESTDISPLAY_H

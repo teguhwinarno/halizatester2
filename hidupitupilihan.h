@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QKeyEvent>
+#include "logger.h"
 
 namespace Ui {
 class hidupitupilihan;
@@ -30,6 +31,7 @@ private slots:
 private:
     Ui::hidupitupilihan *ui;
  //   testkyped *Testkyped;
+    Logger *logger;
 };
 
 #endif // HIDUPITUPILIHAN_H
